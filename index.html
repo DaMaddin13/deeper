@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DEEPER</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="A browser puzzle that starts with a click and gets deeper. One hundred levels. Fair hints. Resume anywhere." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,520&family=Public+Sans:wght@420;560;680&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>DEEPER</h1>
-    <div class="subtitle">100 levels. The further you go, the more there is to find.</div>
-    <div class="depth-mark" id="depthMark"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="top">
+    <a class="mark" href="./" id="home">DEEPER</a>
+    <p class="depth-label" id="depthLabel">Level 01</p>
+    <form class="resume" id="resumeForm">
+      <label for="codeInput">Resume</label>
+      <input id="codeInput" name="code" autocomplete="off" spellcheck="false" placeholder="Code" maxlength="8" />
+      <button type="submit">Open</button>
+    </form>
   </header>
-  <main>
-    <div class="card" id="card">
-      <div class="level" id="levelLabel">Level 1</div>
-      <div class="prompt" id="prompt">Loading...</div>
-      <div id="interaction"></div>
-      <div class="hint" id="hint"></div>
-      <div class="feedback" id="feedback"></div>
-      <div class="progress" id="progress"></div>
-    </div>
-  </main>
-  <footer>DEEPER · Progress saved locally · Enter a code to resume</footer>
+
+  <div class="shell">
+    <aside class="rail" aria-label="Depth">
+      <div class="rail-track"><div class="rail-fill" id="railFill"></div></div>
+      <ol class="rail-ticks" id="railTicks"></ol>
+    </aside>
+
+    <main class="stage" id="stage"></main>
+  </div>
+
+  <footer class="foot">
+    <p>No account. Some levels need a phone, some a computer. The code opens the same level on another device.</p>
+  </footer>
   <script src="game.js"></script>
 </body>
 </html>
